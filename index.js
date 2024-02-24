@@ -15,7 +15,7 @@ function countLovelyNumbers(A, B) {
 function isLovelyNumber(num) {
   const digitCount = new Array(10).fill(0); //สร้าง Array มาใหม่เป็น [0,0,0,0,0,0,0,0,0,0]
   while (num > 0) {
-    // ใช้ % Modulo หารเอาเศษใน digit หลักขวาสุด(หลักหน่วย) เช่นถ้า num = 11333 >>> 11333 % 10 = 3 (11333 หาร 10 จะเหลือเศษ 3) โดยเลข 3 จะไปเก็บใส่ตัวแปรชื่อ digit
+    // ใช้ % Modulus หารเอาเศษใน digit หลักขวาสุด(หลักหน่วย) เช่นถ้า num = 11333 >>> 11333 % 10 = 3 (11333 หาร 10 จะเหลือเศษ 3) โดยเลข 3 จะไปเก็บใส่ตัวแปรชื่อ digit
     const digit = num % 10;
 
     // ที่ใช้ตัวแปร digit มาใส่เป็น index ของ Array digitCount [0,0,0,0,0,0,0,0,0,0]
@@ -42,7 +42,7 @@ function isLovelyNumber(num) {
 // ลองสมมุติค่า test ดูว่าฟังก์ชั่นทำงานถูก
 const A = 1;
 const B = 111;
-// console.log(countLovelyNumbers(A, B));
+console.log(countLovelyNumbers(A, B));
 //
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //
@@ -83,14 +83,13 @@ function countArrayNumber(num) {
 //สมมุติค่า Test ดูฟังก์ชั่นว่า Count ถูกต้อง
 const C = [1, 2, 3, 4, 5, 6];
 const D = [1, 0, -2, 0];
-const E = [0, 1, 2, 0, -1];
-
+const E = [1, 1, 0, 3, -1];
 console.log(countArrayNumber(C));
 console.log(countArrayNumber(D));
 console.log(countArrayNumber(E));
 
 //Step การคิดคร่าวๆ
-// - ใช้การ modulo % หารเอาเศษ สังเกตจาก Pattern ตัวเลขคือ [+,0,-,0,+,0,-,0,...] จะเห็นว่า Pattern ถูกวนทุก 4 ตัว
+// - ใช้การ Modulus % หารเอาเศษ สังเกตจาก Pattern ตัวเลขคือ [+,0,-,0,+,0,-,0,...] จะเห็นว่า Pattern ถูกวนทุก 4 ตัว
 // ดังนั้น ถ้า position ของตัวเลขหาร 4 เหลือเศษ 1 จะตรงกับ +
 //      ถ้า position ของตัวเลขหาร 4 เหลือเศษ 2 หรือ ไม่เหลือเศษ(เศษ 0) จะตรงกับ 0
 //      ถ้า position ของตัวเลขหาร 4 เหลือเศษ 3 จะตรงกับ -
@@ -100,7 +99,7 @@ console.log(countArrayNumber(E));
 //            วนลูปรอบสอง ที่ index 1 (position = 2) ใน array C คือ เลข 2 โดยตัวเลข 2 ไม่ตรงกับเงื่อนไข pattern เพราะเป็น positive number แต่ใน pattern ต้องเป็น 0 ดังนั้น จึงต้องไปคูณ 0 จึงจะได้เป็น 0 ทำให้ต้อง count++ (count = count + 1 >> 0 + 1 = 1) จึงทำให้ count = 1
 //            วนลูปรอบสาม ที่ index 2 (position = 3) ใน array C คือ เลข 3 โดยตัวเลข 3 ไม่ตรงกับเงื่อนไข pattern เพราะเป็น positive number แต่ใน pattern ต้องเป็น - ดังนั้น จึงต้องไปคูณ negative number ทำให้ต้อง count++ (count = count + 1 >> 1 + 1 = 2) จึงทำให้ count = 2
 // ........ วนลูปเช็คเลขที่เหลือ 4 กับ 5 ก็จะได้สุดท้าย count = 3
-// Note: กรณีที่เช็คเลขแล้วทำตามเงื่อนไขไม่ได้ เช่น
+// Note: กรณีที่เช็คเลขแล้วทำตามเงื่อนไขไม่ได้ เช่น num คือ const E = [1, 1, 0, 3, -1];
 //   if (position % 4 === 1) {
 //   if (num[i] < 0) {
 //     count++;
@@ -109,5 +108,23 @@ console.log(countArrayNumber(E));
 //     return count;
 //   }
 // }
-//   จากตัวอย่างนี้ num คือ const E = [1, 1, 0, 3, -1];
+//   จากตัวอย่างนี้
 //   ตำแหน่งที่ index 2 คือเลข 0 โดยถ้าตาม pattern ต้องทำให้เป็น - (negative number) ซึ่งตัวเลข 0 คูณอะไรก็จะได้ 0 ดังนั้น จึงทำให้เป็นไปตาม pattern ไม่ได้ เลยทำให้จาก if condition ข้างบนต้องให้ค่า count = -1 แล้ว return count ทันที ทำให้การ return นี้ นอกจากจะออกจากลูป for แล้วยังเป็นการ return ค่า count ของ function countArrayNumber
+//
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//
+// Question 3
+
+function printPowerOfTwo(num) {
+  for (let i = 1; i <= num; i++) {
+    if (Math.log2(i) % 1 === 0) {
+      console.log("POWER");
+    } else {
+      console.log(i);
+    }
+  }
+}
+
+// เรียกฟังก์ชั่น Test ค่า
+printPowerOfTwo(12);
+//ข้อนี้ search google หาฟังก์ชั่น Math.log2 เอามาเช็คว่าค่าเป็น log 2 มั้ย แล้วเอาไป Modulus 1 เพื่อจะเช็คว่าเป็นจำนวนเต็มไหม เพราะถ้าจำนวนเต็มเศษที่ % 1 ต้องเป็น 0
