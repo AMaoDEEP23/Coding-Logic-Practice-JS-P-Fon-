@@ -40,9 +40,9 @@ function isLovelyNumber(num) {
 }
 
 // ลองสมมุติค่า test ดูว่าฟังก์ชั่นทำงานถูก
-const A = 1;
-const B = 111;
-console.log(countLovelyNumbers(A, B));
+// const A = 1;
+// const B = 111;
+// console.log(countLovelyNumbers(A, B));
 //
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //
@@ -81,12 +81,12 @@ function countArrayNumber(num) {
 }
 
 //สมมุติค่า Test ดูฟังก์ชั่นว่า Count ถูกต้อง
-const C = [1, 2, 3, 4, 5, 6];
-const D = [1, 0, -2, 0];
-const E = [1, 1, 0, 3, -1];
-console.log(countArrayNumber(C));
-console.log(countArrayNumber(D));
-console.log(countArrayNumber(E));
+// const C = [1, 2, 3, 4, 5, 6];
+// const D = [1, 0, -2, 0];
+// const E = [1, 1, 0, 3, -1];
+// console.log(countArrayNumber(C));
+// console.log(countArrayNumber(D));
+// console.log(countArrayNumber(E));
 
 //Step การคิดคร่าวๆ
 // - ใช้การ Modulus % หารเอาเศษ สังเกตจาก Pattern ตัวเลขคือ [+,0,-,0,+,0,-,0,...] จะเห็นว่า Pattern ถูกวนทุก 4 ตัว
