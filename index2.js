@@ -76,10 +76,33 @@ const arrangeInAsc = (array) => {
   evenArr.sort((a, b) => a - b);
 
   //check whether the order is ascending
-  console.log(oddArr);
-  console.log(evenArr);
+  //   console.log(oddArr);
+  //   console.log(evenArr);
 
   //Merge the two arrays starting with the odd array
   return [...oddArr, ...evenArr];
 };
-console.log(arrangeInAsc([4, 2, 5, 7, 1, 6]));
+// console.log(arrangeInAsc([4, 2, 5, 7, 1, 6]));
+
+// ~~~ Question 4 ~~
+const largestNumber = (nums) => {
+  // Custom comparator function for sorting
+  const compare = (a, b) => {
+    const num1 = `${a}${b}`;
+    const num2 = `${b}${a}`;
+
+    // Compare num2 with num1 because we want larger numbers to appear first
+    return num2.localeCompare(num1);
+  };
+
+  // Sort the array using the custom comparator
+  nums.sort(compare);
+
+  return nums.join("");
+};
+
+// Example usage
+console.log(largestNumber([10, 2, 13, 7]));
+console.log(largestNumber([102, 45, 13, 9]));
+console.log(largestNumber([102, 45, 13, 9]));
+console.log(largestNumber([502, 30, 85, 3, 32, 30]));
