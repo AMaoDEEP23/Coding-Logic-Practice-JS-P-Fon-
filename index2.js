@@ -2,22 +2,22 @@
 
 // ~~~ Question 1 ~~
 ///     method 1
-// const sumPrimeNumber = (number) => {
-// if (number < 2) return 0;
-//   let sumPrime = 0;
-//   for (let i = 2; i <= number; i++) {
-//     let countFactor = 0;
-//     for (let j = 1; j <= i; j++) {
-//       if (i % j === 0) {
-//         ++countFactor;
-//       }
-//     }
-//     if (countFactor === 2) {
-//       sumPrime = sumPrime + i;
-//     }
-//   }
-//   return sumPrime;
-// };
+const sumPrimeNumber = (number) => {
+  if (number < 2) return 0;
+  let sumPrime = 0;
+  for (let i = 2; i <= number; i++) {
+    let countFactor = 0;
+    for (let j = 1; j <= i; j++) {
+      if (i % j === 0) {
+        ++countFactor;
+      }
+    }
+    if (countFactor === 2) {
+      sumPrime = sumPrime + i;
+    }
+  }
+  return sumPrime;
+};
 // console.log(sumPrimeNumber(6));
 // console.log(sumPrimeNumber(7));
 // console.log(sumPrimeNumber(8));
@@ -45,3 +45,19 @@ const sumPrime = (number) => {
 // console.log(sumPrime(7));
 // console.log(sumPrime(8));
 // console.log(sumPrime(9));
+
+// ~~~ Question 2 ~~
+const sumOfTwoInArray = (array, targetNum) => {
+  let output = false;
+  for (let i = 0; i < array.length; i++) {
+    for (let j = i + 1; j < array.length; j++) {
+      if (array[i] + array[j] === targetNum) {
+        output = true;
+        return output;
+      }
+    }
+  }
+  return output;
+};
+console.log(sumOfTwoInArray([1, 3, 5, 7, 16, 4], 18));
+console.log(sumOfTwoInArray([1, 3, 5, 7, 16, 4], 8));
