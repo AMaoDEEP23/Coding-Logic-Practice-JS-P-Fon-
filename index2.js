@@ -59,5 +59,27 @@ const sumOfTwoInArray = (array, targetNum) => {
   }
   return output;
 };
-console.log(sumOfTwoInArray([1, 3, 5, 7, 16, 4], 18));
-console.log(sumOfTwoInArray([1, 3, 5, 7, 16, 4], 8));
+// console.log(sumOfTwoInArray([1, 3, 5, 7, 16, 4], 18));
+// console.log(sumOfTwoInArray([1, 3, 5, 7, 16, 4], 8));
+
+// ~~~ Question 3 ~~
+const arrangeInAsc = (array) => {
+  //Get odd array and even array
+  let oddArr = [];
+  let evenArr = [];
+  array.map((item) => {
+    item % 2 === 0 ? evenArr.push(item) : oddArr.push(item);
+  });
+
+  // Arrange each array in ascending order
+  oddArr.sort((a, b) => a - b);
+  evenArr.sort((a, b) => a - b);
+
+  //check whether the order is ascending
+  console.log(oddArr);
+  console.log(evenArr);
+
+  //Merge the two arrays starting with the odd array
+  return [...oddArr, ...evenArr];
+};
+console.log(arrangeInAsc([4, 2, 5, 7, 1, 6]));
