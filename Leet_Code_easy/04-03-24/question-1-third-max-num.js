@@ -26,3 +26,5 @@ const thirdMaxNum = (numsArr) => {
 };
 
 console.log(thirdMaxNum([1, 6, 6, 8, 9, 8, 8, 7, 3]));
+console.log(thirdMaxNum([0, 50, 102, 300, 500, 300, 50]));
+console.log(thirdMaxNum([1, 6, 6]));
