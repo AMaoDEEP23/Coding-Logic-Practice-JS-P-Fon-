@@ -27,7 +27,7 @@ const sumPrimeNumber = (number) => {
 const sumPrime = (number) => {
   if (number < 2) return 0;
   let result = 2;
-  for (let i = 2; i <= number; i++) {
+  for (let i = 3; i <= number; i++) {
     if (i % 2 !== 0) {
       let counter = 0;
       for (let j = 3; j <= i; j++) {
@@ -45,6 +45,28 @@ const sumPrime = (number) => {
 // console.log(sumPrime(7));
 // console.log(sumPrime(8));
 // console.log(sumPrime(9));
+
+//   method 3 another way for better performance
+const sumNumPrime = (number) => {
+  if (number < 2) return 0;
+  let result = 2;
+  for (let i = 3; i <= number; i++) {
+    if (i % 2 !== 0) {
+      let isPrimeNum = true;
+      for (let j = 2; j < i; j++) {
+        if (i % j === 0) {
+          isPrimeNum = false;
+          break;
+        }
+      }
+      if (isPrimeNum) result += i;
+    }
+  }
+  return result;
+};
+console.log(sumNumPrime(13));
+console.log(sumNumPrime(7));
+console.log(sumNumPrime(8));
 
 // ~~~ Question 2 ~~
 const sumOfTwoInArray = (array, targetNum) => {
@@ -102,7 +124,7 @@ const largestNumber = (nums) => {
 };
 
 // Example usage
-console.log(largestNumber([10, 2, 13, 7]));
-console.log(largestNumber([102, 45, 13, 9]));
-console.log(largestNumber([102, 45, 13, 9]));
-console.log(largestNumber([502, 30, 85, 3, 32, 30]));
+// console.log(largestNumber([10, 2, 13, 7]));
+// console.log(largestNumber([102, 45, 13, 9]));
+// console.log(largestNumber([102, 45, 13, 9]));
+// console.log(largestNumber([502, 30, 85, 3, 32, 30]));
