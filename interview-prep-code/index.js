@@ -1,6 +1,7 @@
 //on Date 24-02-24
 
-//Question 1
+// Question 1
+// Method 1
 function countLovelyNumbers(A, B) {
   let count = 0;
   for (let i = A; i <= B; i++) {
@@ -23,10 +24,10 @@ function isLovelyNumber(num) {
     // digit แต่ละตัวของตัวเลข 1 1 3 3 ที่ยกตัวอย่างไว้ข้างบนมาเช็คว่ามีเลขซ้ำกันมั้ย ผ่านการบวกค่าที่อยู่ใน index เดียวกันของ array digitCount ถ้าลองทำรอบต่อไปตัวเลขจะเป็น 113
     // ทีนี้หลักขวาสุดเป็นเลข 3 แล้วเอามาใส่เป็น index ก็จะได้ digitCount[3] = digitCount[3] + 1 หรือ 1 + 1 = 2
     // จะทำให้ได้ Array digitCount = [0,0,0,2,0,0,0,0,0,0] ก็คือจะวนเช็คแบบนี้ไปเรื่อยๆ
-    digitCount[digit] = digitCount[digit] + 1;
+    digitCount[digit]++;
 
     // เช็ค digitCount[3] ใน Array digitCount = [0,0,0,2,0,0,0,0,0,0] หรือก็คือเลข 2 มาเช็คว่าซ้ำกัน 3 ตัวรึยัง โดยถ้าซ้ำแล้วก็ return false ไป
-    if (digitCount[digit] >= 3) {
+    if (digitCount[digit] === 3) {
       return false;
     }
 
@@ -38,11 +39,29 @@ function isLovelyNumber(num) {
   // ถ้าวนลูปจน num ไม่เข้าเงื่อนไข num > 0 แล้วไม่มีการ return false ไปก่อน (return false line 27) ก็จะ return true เพื่อบอกว่าตัวเลขที่เอามาเช็คในฟังก์ชั่น isLovelyNumber(num) เป็นเลข lovely number
   return true;
 }
-
 // ลองสมมุติค่า test ดูว่าฟังก์ชั่นทำงานถูก
-// const A = 1;
-// const B = 111;
-// console.log(countLovelyNumbers(A, B));
+console.log(countLovelyNumbers(2, 111));
+
+// Method 2
+const countLovelyNum = (a, b) => {
+  let countNum = b - a + 1;
+  for (let i = a; i <= b; i++) {
+    let splitNum = String(i).split("").map(Number);
+    let digitCount = new Array(10).fill(0);
+    for (let j = 0; j < splitNum.length; j++) {
+      let digit = splitNum[j];
+      digitCount[digit]++;
+      if (digitCount[digit] === 3) {
+        countNum--;
+        break;
+      }
+    }
+  }
+  return countNum;
+};
+
+// console.log(countLovelyNum(2, 111));
+
 //
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //
@@ -126,5 +145,5 @@ function printPowerOfTwo(num) {
 }
 
 // เรียกฟังก์ชั่น Test ค่า
-printPowerOfTwo(12);
+// printPowerOfTwo(12);
 //ข้อนี้ search google หาฟังก์ชั่น Math.log2 เอามาเช็คว่าค่าเป็น log 2 มั้ย แล้วเอาไป Modulus 1 เพื่อจะเช็คว่าเป็นจำนวนเต็มไหม เพราะถ้าจำนวนเต็มเศษที่ % 1 ต้องเป็น 0
