@@ -40,7 +40,7 @@ function isLovelyNumber(num) {
   return true;
 }
 // ลองสมมุติค่า test ดูว่าฟังก์ชั่นทำงานถูก
-console.log(countLovelyNumbers(2, 111));
+// console.log(countLovelyNumbers(2, 111));
 
 // Method 2
 const countLovelyNum = (a, b) => {
@@ -68,44 +68,32 @@ const countLovelyNum = (a, b) => {
 // Question 2
 function countArrayNumber(num) {
   let count = 0;
-
   for (let i = 0; i < num.length; i++) {
     let position = i + 1;
 
-    if (position % 4 === 1) {
-      if (num[i] < 0) {
-        count++;
-      } else if (num[i] === 0) {
-        count = -1;
-        return count;
-      }
+    if ((position % 4 === 2 || position % 4 === 0) && num[i] !== 0) {
+      count++;
     }
 
-    if (position % 4 === 2 || position % 4 === 0) {
-      if (num[i] < 0 || num[i] > 0) {
-        count++;
-      }
+    if (position % 4 === 1) {
+      if (num[i] === 0) return -1;
+      if (num[i] < 0) count++;
     }
 
     if (position % 4 === 3) {
-      if (num[i] > 0) {
-        count++;
-      } else if (num[i] === 0) {
-        count = -1;
-        return count;
-      }
+      if (num[i] === 0) return -1;
+      if (num[i] > 0) count++;
     }
   }
   return count;
 }
-
 //สมมุติค่า Test ดูฟังก์ชั่นว่า Count ถูกต้อง
-// const C = [1, 2, 3, 4, 5, 6];
-// const D = [1, 0, -2, 0];
-// const E = [1, 1, 0, 3, -1];
-// console.log(countArrayNumber(C));
-// console.log(countArrayNumber(D));
-// console.log(countArrayNumber(E));
+const C = [1, 2, 3, 4, 5, 6];
+const D = [1, 0, -2, 0];
+const E = [1, 1, 0, 3, -1];
+console.log(countArrayNumber(C));
+console.log(countArrayNumber(D));
+console.log(countArrayNumber(E));
 
 //Step การคิดคร่าวๆ
 // - ใช้การ Modulus % หารเอาเศษ สังเกตจาก Pattern ตัวเลขคือ [+,0,-,0,+,0,-,0,...] จะเห็นว่า Pattern ถูกวนทุก 4 ตัว
