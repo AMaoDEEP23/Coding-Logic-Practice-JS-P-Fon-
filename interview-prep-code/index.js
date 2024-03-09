@@ -60,7 +60,7 @@ const countLovelyNum = (a, b) => {
   return countNum;
 };
 
-// console.log(countLovelyNum(2, 111));
+// console.log(countLovelyNum(1, 111));
 
 //
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -88,12 +88,12 @@ function countArrayNumber(num) {
   return count;
 }
 //สมมุติค่า Test ดูฟังก์ชั่นว่า Count ถูกต้อง
-const C = [1, 2, 3, 4, 5, 6];
-const D = [1, 0, -2, 0];
-const E = [1, 1, 0, 3, -1];
-console.log(countArrayNumber(C));
-console.log(countArrayNumber(D));
-console.log(countArrayNumber(E));
+// const C = [1, 2, 3, 4, 5, 6];
+// const D = [1, 0, -2, 0];
+// const E = [1, 1, 0, 3, -1];
+// console.log(countArrayNumber(C));
+// console.log(countArrayNumber(D));
+// console.log(countArrayNumber(E));
 
 //Step การคิดคร่าวๆ
 // - ใช้การ Modulus % หารเอาเศษ สังเกตจาก Pattern ตัวเลขคือ [+,0,-,0,+,0,-,0,...] จะเห็นว่า Pattern ถูกวนทุก 4 ตัว
@@ -125,7 +125,7 @@ console.log(countArrayNumber(E));
 function printPowerOfTwo(num) {
   for (let i = 1; i <= num; i++) {
     if (Math.log2(i) % 1 === 0) {
-      console.log("POWER");
+      console.log(`POWER^${Math.log2(i)}`);
     } else {
       console.log(i);
     }
@@ -133,5 +133,5 @@ function printPowerOfTwo(num) {
 }
 
 // เรียกฟังก์ชั่น Test ค่า
-// printPowerOfTwo(12);
+printPowerOfTwo(12);
 //ข้อนี้ search google หาฟังก์ชั่น Math.log2 เอามาเช็คว่าค่าเป็น log 2 มั้ย แล้วเอาไป Modulus 1 เพื่อจะเช็คว่าเป็นจำนวนเต็มไหม เพราะถ้าจำนวนเต็มเศษที่ % 1 ต้องเป็น 0
